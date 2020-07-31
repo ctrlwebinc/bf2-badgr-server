@@ -96,7 +96,8 @@ class BadgrAccountAdapter(DefaultAccountAdapter):
             if source:
                 query_params['source'] = source
 
-            signup = request.query_params.get('signup', None)
+            # signup = request.query_params.get('signup', None)
+            signup = False
             if signup:
                 query_params['signup'] = 'true'
                 return set_url_query_params(badgr_app.get_path('/auth/welcome'), **query_params)
