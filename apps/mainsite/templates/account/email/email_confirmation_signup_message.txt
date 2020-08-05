@@ -1,10 +1,9 @@
-Please verify your email address on Badgr,
+Merci de confirmer votre adresse de courrier électronique,
 {{ email.email }}
 
-Confirm your email address to activate your Badgr account.
-Click the link below, or copy/paste it into your browser url bar.
+Merci de confirmer votre adresse de courrier électronique pour activer votre compte.
+Cliquez sur le lien ci-dessous ou copiez / collez-le dans la barre d'adresse de votre navigateur.
 
 {{ activate_url }}
 
-If you didn't make this request, you can safely ignore this email,
-and no action will be taken on your behalf.
+Si vous n'avez pas fait cette demande, vous pouvez ignorer ce courriel en toute sécurité. Aucune action ne sera entreprise en votre nom.

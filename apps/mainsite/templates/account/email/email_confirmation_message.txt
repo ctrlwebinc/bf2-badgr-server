@@ -1,11 +1,9 @@
-Please confirm your email address on Badgr,
+Merci de confirmer votre adresse de courrier électronique,
 {{ email.email }}
 
-A Badgr user has requested to add this email to their account or use it in a connected application.
-Once confirmed, you may upload badges to your Badgr account that have been issued to this address
-or use features within connected applications.
+Un utilisateur a demandé d'ajouter ce courriel à son compte ou de l'utiliser dans une application connectée.
+Suite à la confirmation, vous pouvez télécharger dans votre compte Badgr des badges qui ont été émis à cette adresse ou utiliser des fonctionnalités dans les applications connectées.
 
 {{ activate_url }}
 
-If you didn't make this request, you can safely ignore this email, and
-no action will be taken on your behalf.
+Si vous n'avez pas fait cette demande, vous pouvez ignorer ce courriel en toute sécurité. Aucune action ne sera entreprise en votre nom.
