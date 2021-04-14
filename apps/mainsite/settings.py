@@ -474,7 +474,7 @@ BADGERANK_NOTIFY_ON_FIRST_ASSERTION = True
 BADGERANK_NOTIFY_URL = 'https://api.badgerank.org/v1/badgeclass/submit'
 
 # Feature options
-GDPR_COMPLIANCE_NOTIFY_ON_FIRST_AWARD = True  # Notify recipients of first award on server even if issuer didn't opt to.
+GDPR_COMPLIANCE_NOTIFY_ON_FIRST_AWARD = False  # Notify recipients of first award on server even if issuer didn't opt to.
 BADGR_APPROVED_ISSUERS_ONLY = False
 
 # Email footer operator information
@@ -482,8 +482,8 @@ PRIVACY_POLICY_URL = None
 TERMS_OF_SERVICE_URL = None
 GDPR_INFO_URL = None
 OPERATOR_STREET_ADDRESS = None
-OPERATOR_NAME = None
-OPERATOR_URL = None
+OPERATOR_NAME = 'Cadre21'
+OPERATOR_URL = 'https://cadre21.org'
 
 # OVERRIDE THESE VALUES WITH YOUR OWN STABLE VALUES IN LOCAL SETTINGS
 from cryptography.fernet import Fernet
