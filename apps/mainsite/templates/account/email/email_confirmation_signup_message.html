@@ -23,7 +23,7 @@
                         <tr>
                           <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                             <div style="font-family:'Open Sans', Helvetica, Arial, sans-serif;font-size:32px;font-weight:bold;line-height:40px;text-align:center;color:#191919;">
-                              {% blocktrans with site_name=site.name site_domain=site.domain %}Merci de confirmer votre adresse de courrier électronique pour votre compte
+                              {% blocktrans with site_name=site.name site_domain=site.domain %}Merci de confirmer l’activation de votre compte
                               {{site_name}}.{% endblocktrans %}
                             </div>
                           </td>
@@ -44,5 +44,5 @@
 {% endblock %}
 {% block button_url %}{{ activate_url }}{% endblock %}
 {% block button_url_copy %}{{ activate_url }}{% endblock %}
-{% block button_text %}Confirmer Maintenant{% endblock %}
+{% block button_text %}Activer mon compte{% endblock %}
 {% block unsubscribe %}{% endblock %}
