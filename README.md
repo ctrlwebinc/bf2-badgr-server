@@ -122,3 +122,10 @@ If your [badgr-ui](https://github.com/concentricsky/badgr-ui) is running on http
 Start in your `badgr` directory and clone badgr-ui source code: `git clone https://github.com/concentricsky/badgr-ui.git badgr-ui`
 
 For more details view the Readme for [Badgr UI](https://github.com/concentricsky/badgr-ui).
+
+## Badgr server and Apache
+When installing Badgr server behind Apache you'll need to add the follwing to the Apache site configuration to prevent 401 errors:
+````
+RewriteEngine on
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
