@@ -1,4 +1,4 @@
 {% load i18n %}
 {% autoescape off %}
-{% blocktrans %}Confirmation de votre inscription au CADRE21{% endblocktrans %}
+{% blocktrans %}Confirmation de votre inscription au CPF{% endblocktrans %}
 {% endautoescape %}
