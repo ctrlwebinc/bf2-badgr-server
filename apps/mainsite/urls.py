@@ -34,7 +34,7 @@ urlpatterns = [
     url(r'^apple-app-site-association', AppleAppSiteAssociation.as_view(), name="apple-app-site-association"),
 
     # OAuth2 provider URLs
-    url(r'^o/authorize/?$', AuthorizationApiView.as_view(), name='oauth2_api_authorize'),
+    #url(r'^o/authorize/?$', AuthorizationApiView.as_view(), name='oauth2_api_authorize'),
     url(r'^o/token/?$', TokenView.as_view(), name='oauth2_provider_token'),
     url(r'^o/code/?$', AuthCodeExchange.as_view(), name='oauth2_code_exchange'),
     url(r'^o/register/?$', RegisterApiView.as_view(), kwargs={'version': 'rfc7591'}, name='oauth2_api_register'),
@@ -108,7 +108,8 @@ urlpatterns = [
     url(r'^v1/externaltools/', include('externaltools.v1_api_urls'), kwargs={'version': 'v1'}),
     url(r'^v2/externaltools/', include('externaltools.v2_api_urls'), kwargs={'version': 'v2'}),
 
-
+    # bf2 API additions
+    url(r'^v2/', include('bf2.urls')),
 ]
 
 # Test URLs to allow you to see these pages while DEBUG is True

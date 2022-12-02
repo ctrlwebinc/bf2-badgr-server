@@ -67,8 +67,8 @@ django-celery-results==1.0.1
 python-json-logger==0.1.2
 
 # SSL Support
-cffi==1.11.5
-cryptography==3.2.1
+cffi==1.14.4
+#cryptography==3.2.1
 idna==2.8
 ipaddress==1.0.14
 pyasn1==0.1.9

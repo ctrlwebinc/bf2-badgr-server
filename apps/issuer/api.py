@@ -30,6 +30,7 @@ from apispec_drf.decorators import apispec_get_operation, apispec_put_operation,
     apispec_delete_operation, apispec_list_operation, apispec_post_operation
 from mainsite.permissions import AuthenticatedWithVerifiedIdentifier, IsServerAdmin
 from mainsite.serializers import CursorPaginatedListSerializer
+from bf2.serializers import LimitOffsetPaginatedListSerializer
 from mainsite.models import AccessTokenProxy
 
 logger = badgrlog.BadgrLogger()
@@ -681,7 +682,7 @@ class IssuerTokensList(BaseEntityListView):
         return Response(serializer.data)
 
 
-class PaginatedAssertionsSinceSerializer(CursorPaginatedListSerializer):
+class PaginatedAssertionsSinceSerializer(LimitOffsetPaginatedListSerializer):
     child = BadgeInstanceSerializerV2()
 
     def __init__(self, *args, **kwargs):
@@ -735,7 +736,7 @@ class AssertionsChangedSince(BaseEntityView):
         return Response(serializer.data)
 
 
-class PaginatedBadgeClassesSinceSerializer(CursorPaginatedListSerializer):
+class PaginatedBadgeClassesSinceSerializer(LimitOffsetPaginatedListSerializer):
     child = BadgeClassSerializerV2()
 
     def __init__(self, *args, **kwargs):
@@ -787,7 +788,7 @@ class BadgeClassesChangedSince(BaseEntityView):
         return Response(serializer.data)
 
 
-class PaginatedIssuersSinceSerializer(CursorPaginatedListSerializer):
+class PaginatedIssuersSinceSerializer(LimitOffsetPaginatedListSerializer):
     child = IssuerSerializerV2()
 
     def __init__(self, *args, **kwargs):

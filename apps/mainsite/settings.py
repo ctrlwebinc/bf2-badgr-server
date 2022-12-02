@@ -122,7 +122,7 @@ TEMPLATES = [
 #
 ##
 
-HTTP_ORIGIN = "http://localhost:8000"
+HTTP_ORIGIN = "https://badgr-cpf.ctrlweb.dev"
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -359,8 +359,8 @@ REST_FRAMEWORK = {
     'DEFAULT_VERSION': 'v1',
     'ALLOWED_VERSIONS': ['v1', 'v2', 'bcv1', 'rfc7591'],
     'EXCEPTION_HANDLER': 'entity.views.exception_handler',
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 100,
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
 }
 
 
@@ -384,7 +384,7 @@ LTI_STORE_IN_SESSION = False
 
 CAIROSVG_VERSION_SUFFIX = "2"
 
-SITE_ID = 1
+SITE_ID = 4
 
 USE_I18N = False
 USE_L10N = False
@@ -482,8 +482,8 @@ PRIVACY_POLICY_URL = None
 TERMS_OF_SERVICE_URL = None
 GDPR_INFO_URL = None
 OPERATOR_STREET_ADDRESS = None
-OPERATOR_NAME = 'Cadre21'
-OPERATOR_URL = 'https://cadre21.org'
+OPERATOR_NAME = 'CPF'
+OPERATOR_URL = 'https://cpf.ctrlweb.dev'
 
 # OVERRIDE THESE VALUES WITH YOUR OWN STABLE VALUES IN LOCAL SETTINGS
 from cryptography.fernet import Fernet

@@ -53,7 +53,7 @@ class BadgeUserDetail(BaseEntityDetailView):
     v2_serializer_class = BadgeUserSerializerV2
     permission_classes = (permissions.AllowAny, BadgrOAuthTokenHasScope)
     valid_scopes = {
-        "post": ["*"],
+        "post": ["*", "rw:profile"],
         "get": ["r:profile", "rw:profile"],
         "put": ["rw:profile"],
     }

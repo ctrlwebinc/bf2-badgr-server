@@ -10,6 +10,7 @@ from rest_framework.views import APIView
 
 import badgrlog
 from mainsite.pagination import BadgrCursorPagination
+from bf2.pagination import BadgrLimitOffsetPagination
 
 
 class BaseEntityView(APIView):
@@ -178,7 +179,7 @@ class UncachedPaginatedViewMixin(object):
     min_per_page = 1
     max_per_page = 500
     default_per_page = None  # dont paginate by default
-    per_page_query_parameter_name = 'num'
+    per_page_query_parameter_name = 'limit'
     ordering = "-created_at"
 
     def get_ordering(self):
@@ -203,7 +204,7 @@ class UncachedPaginatedViewMixin(object):
 
         # only paginate on request
         if per_page:
-            self.paginator = BadgrCursorPagination(ordering=self.get_ordering(), page_size=per_page)
+            self.paginator = BadgrLimitOffsetPagination(ordering=self.get_ordering(), page_size=per_page)
             page = self.paginator.paginate_queryset(queryset, request=request)
         else:
             page = list(queryset)
