@@ -6,11 +6,11 @@ import dateutil.parser
 from django.conf import settings
 from django.core.exceptions import ValidationError as DjangoValidationError
 from django.db.models import Q
-from django.http import Http404
+from django.http import Http404, HttpResponse
 from django.utils import timezone
 from oauthlib.oauth2.rfc6749.tokens import random_token_generator
 from rest_framework import status, serializers
-from rest_framework.exceptions import ValidationError
+from rest_framework.exceptions import ValidationError, NotAuthenticated
 from rest_framework.response import Response
 from rest_framework.status import HTTP_404_NOT_FOUND, HTTP_200_OK, HTTP_400_BAD_REQUEST, HTTP_403_FORBIDDEN
 
@@ -837,3 +837,11 @@ class IssuersChangedSince(BaseEntityView):
             context=context)
         serializer.is_valid()
         return Response(serializer.data)
+
+
+def backpack_assertion_rebake(request, entity_id):
+    if not request.user.is_authenticated:
+        raise NotAuthenticated()
+    assertion = BadgeInstance.objects.get(entity_id=entity_id)
+    assertion.rebake()
+    return HttpResponse(status=200)

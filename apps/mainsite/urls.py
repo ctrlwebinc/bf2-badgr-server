@@ -21,6 +21,8 @@ from mainsite.views import SitewideActionFormView, RedirectToUiLogin, DocsAuthor
 from mainsite.views import info_view, email_unsubscribe, AppleAppSiteAssociation, error404, error500
 from pathway.api import PathwayList
 
+from issuer.api import backpack_assertion_rebake
+
 urlpatterns = [
     # Backup URLs in case the server isn't serving these directly
     url(r'^favicon\.png[/]?$', RedirectView.as_view(url='%simages/favicon.png' % settings.STATIC_URL, permanent=True)),
@@ -91,6 +93,8 @@ urlpatterns = [
     # they do not conform to new /v2/ conventions,  they need to appear before /v2/ to not collide
     url(r'^v2/issuers/(?P<issuer_slug>[^/]+)/pathways$', PathwayList.as_view(), name='pathway_list'),
     url(r'^v2/issuers/(?P<issuer_slug>[^/]+)/pathways/', include('pathway.api_urls'), kwargs={'version': 'v1'}),
+
+    url(r'^v2/assertions/(?P<entity_id>[^/]+)/rebake$', backpack_assertion_rebake, name='v2_api_backpack_assertion_rebake'),
 
     # recipient was refactored to /v2/, but for now keep the old "v1" API registered at /v2/issuers/<issuer_slug/recipient-groups
     url(r'^v2/', include('recipient.v1_api_urls'), kwargs={'version': 'v1'}),

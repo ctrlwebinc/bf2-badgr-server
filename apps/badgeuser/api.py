@@ -427,7 +427,7 @@ class BadgeUserEmailConfirm(BaseUserRecoveryView):
         if user is None or not default_token_generator.check_token(user, key):
             logger.event(badgrlog.EmailConfirmationTokenExpired(
                 request, email_address=email_address))
-            email_address.send_confirmation(request=request, signup=False)
+            #email_address.send_confirmation(request=request, signup=False)
             return redirect_to_frontend_error_toast(request,
                                                     "Your authorization link has expired. You have been sent a new "
                                                     "link. Please check your email and try again.")
