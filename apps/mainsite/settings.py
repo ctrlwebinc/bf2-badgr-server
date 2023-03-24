@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'django_object_actions',
+    'django_extensions',
     'markdownify',
 
     'badgeuser',
@@ -122,7 +123,7 @@ TEMPLATES = [
 #
 ##
 
-HTTP_ORIGIN = "http://localhost:8000"
+HTTP_ORIGIN = "https://laravel-badges-utility.test:8000"
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
