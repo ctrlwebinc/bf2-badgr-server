@@ -9,7 +9,7 @@ DEBUG_ERRORS = DEBUG
 DEBUG_STATIC = DEBUG
 DEBUG_MEDIA = DEBUG
 
-TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'America/Toronto'
 LANGUAGE_CODE = 'en-us'
 
 
@@ -22,14 +22,15 @@ LANGUAGE_CODE = 'en-us'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(TOP_DIR, 'local.sqlite3'),                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql', # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'badgr_server_local',                      # Or path to database file if using sqlite3.
+        'USER': 'default',                      # Not used with sqlite3.
+        'PASSWORD': 'secret',                  # Not used with sqlite3.
+        'HOST': 'mysql',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '3306',                      # Set to empty string for default. Not used with sqlite3.
         'OPTIONS': {
-#            "SET character_set_connection=utf8mb3, collation_connection=utf8_unicode_ci",  # Uncomment when using MySQL to ensure consistency across servers
+            #"SET character_set_connection=utf8mb3, collation_connection=utf8_unicode_ci",  # Uncomment when using MySQL to ensure consistency across servers
+            "init_command": "SET default_storage_engine=InnoDB"  # Uncomment when using MySQL to ensure consistency across servers
         },
     }
 }
@@ -128,7 +129,7 @@ CELERY_ALWAYS_EAGER = True
 #
 ###
 
-HTTP_ORIGIN = 'http://localhost:8000'
+HTTP_ORIGIN = 'https://laravel-badges-utility.test:8000'
 
 # Optionally restrict issuer creation to accounts that have the 'issuer.add_issuer' permission
 BADGR_APPROVED_ISSUERS_ONLY = False
@@ -157,7 +158,7 @@ LOGS_DIR = TOP_DIR + '/logs'
 
 
 
-ALLOWED_HOSTS = ['<your badgr server domain>', ]
+ALLOWED_HOSTS = ['laravel-badges-utility.test', ]
 
 SECRET_KEY = 'QKQ9NKGJLXE8UVS3TXIB0DE7Q9W41J578C5FCRJL'  # ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(40))
 UNSUBSCRIBE_KEY = '8GGGDKOT4H4O7QU4GPGZ7ERY9GPE2FKALAO81WYP'  # ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(40))
